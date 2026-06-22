@@ -19,7 +19,7 @@ This project is part of my learning journey and portfolio — created to practic
 ---
 
 ## Demo  
-[View live on GitHub Pages](https://aanowak.github.io/Calculator)  
+[View live on GitHub Pages](https://aanowak.github.io/JS-Calculator)  
 
 ---
 
