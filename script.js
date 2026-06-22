@@ -42,8 +42,7 @@ function evaluateCalculation() {
     if (result === Infinity || isNaN(result)) {
       throw new Error("Cannot divide by zero");
     }
-
-    // Konwertujemy wynik na string, żeby metody tekstowe (np. .length czy .slice) nadal działały
+    
     calculation = String(result);
     localStorage.setItem('calculation', JSON.stringify(calculation));
     displayCalculation();

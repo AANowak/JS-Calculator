@@ -36,7 +36,7 @@ This project is part of my learning journey and portfolio — created to practic
 ---
 
 ## Lessons Learned & Refactoring  
-- **Production-ready calculations:** Replaced the unsafe `eval()` function with a safer `new Function()` execution context to ensure code security.
+- **Production-ready calculations:** Replaced the unsafe `eval()` function with a safer execution context to ensure code security.
 - **Advanced Event Handling:** Implemented **Event Delegation** on the button container instead of using multiple inline `onclick` attributes, dramatically improving DOM performance and separating concerns (HTML from JS).
 - **Robust Error Handling:** Added a comprehensive `try...catch` block to gracefully handle syntax errors and prevent mathematical edge-cases like division by zero (`Infinity`).
 - **RegEx Power:** Used Regular Expressions for the first time to preprocess strings for implicit multiplication.
