@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <title>Calculator</title>
-    <link rel="stylesheet" href="calculator-style.css?v=1.2">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>JS-Calculator</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=1.3">
   </head>
 
   <body>
@@ -16,89 +17,34 @@
           <p class="js-calculator-display calculator-display-screen"></p>
         </div>
         <div class="buttons-box">
-
-            <button class="action-button left-paren" onclick="
-              addToCalculation('(');
-            ">(</button>
-
-            <button class="action-button right-paren" onclick="
-              addToCalculation(')');
-            ">)</button>
+            <button class="action-button left-paren" data-value="(">(</button>
+            <button class="action-button right-paren" data-value=")">)</button>
+            <button class="action-button reset" data-action="reset">Reset</button>          
             
-            <button class="action-button reset" onclick="
-              resetCalculation();
-            ">Reset</button>          
+            <button class="number-button one" data-value="1">1</button>
+            <button class="number-button two" data-value="2">2</button>
+            <button class="number-button three" data-value="3">3</button>          
             
-            <button class="number-button one" onclick="
-              addToCalculation('1');
-            ">1</button>
-
-            <button class="number-button two" onclick="
-              addToCalculation('2');
-            ">2</button>
-
-            <button class="number-button three" onclick="
-              addToCalculation('3');
-            ">3</button>          
-            
-            <button class="number-button four" onclick="
-              addToCalculation('4');
-            ">4</button>
-
-            <button class="number-button five" onclick="
-              addToCalculation('5');
-            ">5</button>
-
-            <button class="number-button six" onclick="
-              addToCalculation('6');
-            ">6</button>
+            <button class="number-button four" data-value="4">4</button>
+            <button class="number-button five" data-value="5">5</button>
+            <button class="number-button six" data-value="6">6</button>
           
-            <button class="number-button seven" onclick="
-              addToCalculation('7');
-            ">7</button>
-
-            <button class="number-button eight" onclick="
-              addToCalculation('8');
-            ">8</button>
-
-            <button class="number-button nine" onclick="
-              addToCalculation('9');
-            ">9</button>
+            <button class="number-button seven" data-value="7">7</button>
+            <button class="number-button eight" data-value="8">8</button>
+            <button class="number-button nine" data-value="9">9</button>
             
-            <button class="number-button zero" onclick="
-              addToCalculation('0');
-            ">0</button>
+            <button class="number-button zero" data-value="0">0</button>
 
-            <button class="action-button plus" onclick="
-              addToCalculation(' + ');
-            ">+</button>
-            
-            <button class="action-button minus" onclick="
-              addToCalculation(' - ');
-            ">-</button>
+            <button class="action-button plus" data-value="+">+</button>
+            <button class="action-button minus" data-value="-">-</button>
+            <button class="action-button multiply" data-value="*">*</button>
+            <button class="action-button dot" data-value=".">.</button>
+            <button class="action-button equal" data-action="evaluate">=</button>
+            <button class="action-button divide" data-value="/">/</button>
 
-            <button class="action-button multiply" onclick="
-              addToCalculation(' * ');
-            ">*</button>
-
-            <button class="action-button dot" onclick="
-              addToCalculation('.');
-            ">.</button>
-
-            <button class="action-button equal" onclick="
-              evaluateCalculation()
-            ">=</button>
-
-            <button class="action-button divide" onclick="
-              addToCalculation(' / ');
-            ">/</button>
-
-            <button class="action-button delete material-icons" onclick="
-              backspace();
-            ">backspace</button>
-        </div> 
+            <button class="action-button delete material-icons" data-action="backspace" aria-label="Delete last character">backspace</button>
       </div> 
     </div>  
-    <script src="calculator-script.js?v=1.2"></script>
+    <script src="script.js?v=1.3"></script>
   </body>
 </html>

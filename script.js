@@ -2,19 +2,16 @@ let calculation = JSON.parse(localStorage.getItem('calculation')) || '';
 displayCalculation();
 
 function addToCalculation (value) {
-  calculation = calculation + value;
   if (calculation.length >= 30) return;
+  calculation = calculation + value;
   localStorage.setItem('calculation', JSON.stringify(calculation));
   displayCalculation();
 }
 
-// Preprocess calculation to handle implicit multiplication
+// Implied multiplication, RegEx
 function preprocessCalculation(calc) {
-  // number followed by ( → multiply
   calc = calc.replace(/(\d)\(/g, '$1*(');
-  // ) followed by number → multiply
   calc = calc.replace(/\)(\d)/g, ')*$1');
-  // ) followed by ( → multiply
   calc = calc.replace(/\)\(/g, ')*(');
   return calc;
 }
@@ -59,12 +56,25 @@ function evaluateCalculation() {
   }
 }
 
+document.querySelector('.buttons-box').addEventListener('click', (event) => {
+  const button = event.target;
+  //ignores clicking space between buttons
+  if (!button.matches('button')) return;
+
+  const value = button.dataset.value;
+  const action = button.dataset.action;
+
+  if (value) addToCalculation(value);
+  if (action === 'reset') resetCalculation();
+  if (action === 'backspace') backspace();
+  if (action === 'evaluate') evaluateCalculation();
+});
 
 document.addEventListener("keydown", (event) => {
   const key = event.key;
 
   if (/\d/.test(key)) addToCalculation(key);
-  else if ("+-*/".includes(key)) addToCalculation(` ${key} `);
+  else if ("+-*/".includes(key)) addToCalculation(`${key}`);
   else if (key === ".") addToCalculation(".");
   else if (key === "Enter" || event.code === "NumpadEnter") evaluateCalculation();
   else if (key === "(" || key === ")") addToCalculation(key);
